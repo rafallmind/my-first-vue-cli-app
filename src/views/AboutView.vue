@@ -9,37 +9,22 @@
 <script>
 
 import FicheCoach from '@/components/FicheCoach.vue';
+import fetch from 'node-fetch';
 
 export default {
   name: 'AboutView',
   components: {
     FicheCoach
   },
-  props: {
-    title: String,
-    description: String,
-    status: String
-
-  },
-  data(){
-    return{
-      coaches: [
-        {
-          nomCoach : "Benjamin Pavard",
-          siteInternet : "https://fr.wikipedia.org/wiki/Benjamin_Pavard",
-          mail : "secondpoteau.pavard@gmail.com",
-          description : "Benjamin Pavard, né le 28 mars 1996 à Maubeuge (Nord), est un footballeur international français qui évolue au poste de défenseur central et de latéral droit au Bayern Munich."
-
-        },
-        {
-          nomCoach : "Kyk's",
-          siteInternet : "https://fr.wikipedia.org/wiki/Kylian_Mbapp%C3%A9",
-          mail : "qatar.noucl@gmail.com",
-          description : "Kylian Mbappé, né le 20 décembre 1998 à Paris, est un footballeur international français qui évolue au poste d'attaquant au Paris Saint-Germain."
-
-        }
-      ],
+  data() {
+    return {
+      coaches: []
     }
+  },
+  async created() {
+    const response = await fetch('/infoCoachDataConfig.json');
+    const data = await response.json();
+    this.coaches = data.coaches;
   }
 }
 </script>
