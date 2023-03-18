@@ -9,51 +9,23 @@
 <script>
 
 import ActivityComponent from '@/components/FicheActivite.vue';
+import fetch from 'node-fetch';
+
 
 export default {
   name: 'HomeView',
   components: {
     ActivityComponent
   },
-  data(){
-    return{
-      fiches: [{
-          title : "Activity 1",
-          description : "Descritpion 1",
-          status : "Done"
-        },
-        {
-          title : "Activity 2",
-          description : "Descritpion 2",
-          status : "Done"
-        },
-        {
-          title : "Activity 3",
-          description : "Descritpion 3",
-          status : "Done"
-        },
-        {
-          title : "Activity 4",
-          description : "Descritpion 4",
-          status : "Todo"
-        },
-        {
-          title : "Activity 5",
-          description : "Descritpion 5",
-          status : "Todo"
-        },
-        {
-          title : "Activity 6",
-          description : "Descritpion 6",
-          status : "Done"
-        },
-        {
-          title : "Activity 7",
-          description : "Descritpion 7",
-          status : "Todo"
-        },
-      ],
+  data() {
+    return {
+      fiches: []
     }
+  },
+  async created() {
+    const response = await fetch('/activityDataConfig.json');
+    const data = await response.json();
+    this.fiches = data.fiches;
   }
 }
 </script>
