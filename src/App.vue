@@ -52,12 +52,12 @@
       </div>
     </div>
   </header>
-  <body class="mt-6">
+  <body class="mt-6 bg2">
     <div class="container">
       <RouterView/>
     </div>
   </body>
-  <footer class="footer">
+  <footer class="footer bg2">
   <div class="content has-text-centered">
     <p>
       <strong>Digi Circus</strong> par 
@@ -92,5 +92,28 @@ export default{
 
 <style>
   @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
-
+  .c1{
+    color:#A15F00 !important;
+  }
+  .c2{
+    color:#ED9A24 !important;
+  }
+  .c3{
+    color:#40B3FF !important;
+  }
+  .c4{
+    color:#0C65A1 !important;
+  }
+  .bg1{
+    background-color: #A15F00 !important;
+  }
+  .bg2{
+    background-color: #ED9A24 !important;
+  }
+  .bg3{
+    background-color: #40B3FF !important;
+  }
+  .bg4{
+    background-color: #0C65A1 !important; 
+  }
 </style>

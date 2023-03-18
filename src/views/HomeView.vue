@@ -1,8 +1,8 @@
 <template>
-  <div class="container">    
-    <div class="section" v-for="fiche in fiches" :key="fiche.title">
-      <ActivityComponent :title="fiche.title" :description="fiche.description" :status="fiche.status"/>
-    </div>
+  <div class="section">  
+      <div class="container mb-3" v-for="fiche in fiches" :key="fiche.title">
+        <ActivityComponent :title="fiche.title" :description="fiche.description" :status="fiche.status" :urlYtb="fiche.urlYtb"/>
+      </div>    
   </div>
 </template>
 
