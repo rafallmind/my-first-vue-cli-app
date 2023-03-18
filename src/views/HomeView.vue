@@ -1,7 +1,4 @@
 <template>
-  <div class="title">
-    {{ nomApplication }}
-  </div>
   <div class="container">    
     <div v-for="fiche in fiches" :key="fiche.title">
       <FicheActivite :title="fiche.title" :description="fiche.description" :status="fiche.status"/>
@@ -55,18 +52,8 @@ export default {
           status : "Todo"
         },
       ],
-
-      nomApplication: ''
-
     }
   },
-  mounted() {
-    fetch('/config.txt')
-      .then(response => response.text())
-      .then(data => {
-        this.nomApplication = data;
-      });
-  }
 }
 </script>
 
