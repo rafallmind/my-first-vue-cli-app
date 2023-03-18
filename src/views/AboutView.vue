@@ -1,52 +1,51 @@
 <template>
-  <div id="app">
-    <h1>Page d'information de votre coach</h1>
-    <p>
-      Nom du coach : {{ nomCoach }}
-    </p>
-    <p>
-      Site : 
-      <a href="https://www.google.com/" target="_blank">
-        {{ siteInternet }}
-      </a>
-    </p>
-    <p>
-      Mail : {{ mail }}
-    </p>
-    <p>
-      Description : {{ description }}
-    </p>
-    <p>
-      Reseaux sociaux : 
-    </p>
-    <a href="https://www.facebook.com/" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook" width="32" height="32">
-    </a>      /       
-    <a href="https://www.linkedin.com" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/800px-LinkedIn_logo_initials.png" alt="LinkedIn" width="32" height="32">
-    </a>      /       
-    <a href="https://www.instagram.com" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png" alt="Instagram" width="32" height="32">
-    </a>      /       
-    <a href="https://mail.google.com" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/800px-Gmail_icon_%282020%29.svg.png" alt="Instagram" width="32" height="32">
-    </a>
-
+  <div class="container">
+    <div class="section" v-for="coach in coaches" :key="coach.nomCoach">
+      <FicheCoach :nomCoach="coach.nomCoach" :mail="coach.mail" :description="coach.description" :siteInternet="coach.siteInternet"/>
+    </div>
   </div>
 </template>
 
 <script>
+
+import FicheCoach from '@/components/FicheCoach.vue';
+
 export default {
-  data() {
-    return {
-      // autres données de votre composant
-      nomCoach: "Benjamin Pavard",
-      siteInternet: "benjamin-pavard-coach.fr",
-      mail: "benjaminpavardcoach@gmail.com",
-      description: "Coach spécialisé dans la musculuation. Pratiquant depuis quelques années, je donne maintenant des cours aux débutants."
+  name: 'AboutView',
+  components: {
+    FicheCoach
+  },
+  props: {
+    title: String,
+    description: String,
+    status: String
+
+  },
+  data(){
+    return{
+      coaches: [
+        {
+          nomCoach : "Benjamin Pavard",
+          siteInternet : "https://fr.wikipedia.org/wiki/Benjamin_Pavard",
+          mail : "secondpoteau.pavard@gmail.com",
+          description : "Benjamin Pavard, né le 28 mars 1996 à Maubeuge (Nord), est un footballeur international français qui évolue au poste de défenseur central et de latéral droit au Bayern Munich."
+
+        },
+        {
+          nomCoach : "Kyk's",
+          siteInternet : "https://fr.wikipedia.org/wiki/Kylian_Mbapp%C3%A9",
+          mail : "qatar.noucl@gmail.com",
+          description : "Kylian Mbappé, né le 20 décembre 1998 à Paris, est un footballeur international français qui évolue au poste d'attaquant au Paris Saint-Germain."
+
+        }
+      ],
     }
   }
 }
 </script>
 
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+</style>
 

@@ -1,18 +1,19 @@
 <template>
   <div class="container">    
-    <div v-for="fiche in fiches" :key="fiche.title">
-      <FicheActivite :title="fiche.title" :description="fiche.description" :status="fiche.status"/>
+    <div class="section" v-for="fiche in fiches" :key="fiche.title">
+      <ActivityComponent :title="fiche.title" :description="fiche.description" :status="fiche.status"/>
     </div>
   </div>
 </template>
 
 <script>
-import FicheActivite from '@/components/FicheActivite.vue';
+
+import ActivityComponent from '@/components/FicheActivite.vue';
 
 export default {
   name: 'HomeView',
   components: {
-    FicheActivite
+    ActivityComponent
   },
   data(){
     return{
@@ -53,7 +54,7 @@ export default {
         },
       ],
     }
-  },
+  }
 }
 </script>
 

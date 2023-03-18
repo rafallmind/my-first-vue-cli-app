@@ -1,6 +1,5 @@
 <template>
-
-    <div class="card">
+    <div class="card has-background-info">
         <header class="card-header">
             <p class="card-header-title">
             {{title}}
@@ -20,11 +19,11 @@
             <a href="#" class="card-footer-item">{{ status }}</a>
         </footer>
     </div>
-  </template>
+</template>
   
   <script>
   export default {
-    name: 'HelloWorld',
+    name: 'ActivityComponent',
     props: {
       title: String,
       description: String,
@@ -35,7 +34,7 @@
   </script>
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
-  <style scoped lang="scss">
+<style scoped lang="scss">
   @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
-  </style>
+</style>
   

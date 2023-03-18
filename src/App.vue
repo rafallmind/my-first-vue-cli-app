@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
+    <div class="navbar is-fixed-top is-info" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="#">
           <img alt="Logo Application" src="./assets/objective.png" width="30" height="30">
@@ -52,7 +52,7 @@
       </div>
     </div>
   </header>
-  <body>
+  <body class="mt-6">
     <div class="container">
       <RouterView/>
     </div>
