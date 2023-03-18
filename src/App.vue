@@ -1,10 +1,10 @@
 <template>
   <header>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="#">
-          <img alt="Logo Application" src="./assets/objective.png" width="30" height="3 0">
-          <h1 class="title is-4 is-spaced">{{ nomApplication }}</h1>
+          <img alt="Logo Application" src="./assets/objective.png" width="30" height="30">
+          <h1 class="title is-4 ml-4">{{ nomApplication }}</h1>
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -50,10 +50,12 @@
           </div>
         </div>
       </div>
-    </nav>
+    </div>
   </header>
   <body>
+    <div class="container">
       <RouterView/>
+    </div>
   </body>
   <footer class="footer">
   <div class="content has-text-centered">
