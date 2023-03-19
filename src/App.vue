@@ -40,9 +40,6 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary">
-                <strong>S'enregistrer</strong>
-              </a>
               <a class="button is-light">
                 Se connecter
               </a>
@@ -60,7 +57,7 @@
   <footer class="footer bg2">
   <div class="content has-text-centered">
     <p>
-      <strong>Digi Circus</strong> par 
+      <strong>{{ nomApplication }}</strong> par 
       <a href="https://www.linkedin.com/in/julian-aubert-4b6438174/">Julian Aubert</a> - 
       <a href="https://www.linkedin.com/in/samuel-briand-44220/">Samuel Briand</a> - 
       <a href="https://www.linkedin.com/in/louis-andre-298785171/">Louis André</a> - 
