@@ -42,11 +42,12 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div id="pseudo" class="loginPlace" style="display = 'none'">
-              Disconnect
+              Déconnecté
             </div>
-            <div class="buttons">
-              <GoogleLogin :callback="callback" id="boutonG" />
-            </div>
+            <button id="logout" class="loginPlace button is-primary" @click="logout()">
+              Se déconnecter
+            </button>
+            <GoogleLogin :callback="callback" id="boutonG" />
           </div>
         </div>
       </div>
@@ -72,17 +73,20 @@
 </template>
 <script setup>
 import { decodeCredential } from 'vue3-google-login'
+
 const callback = (response) => {
-  const userData = decodeCredential(response.credential)
-  console.log("Handle the userData", userData.name)
-  const valeur = document.querySelector('#pseudo');
+  const userData = decodeCredential(response.credential);
+  const valeur = document.getElementById('pseudo');
   const loginBouton = document.getElementById("boutonG");
+  const logoutBouton = document.getElementById("logout");
+  console.log("Pseudo : ", userData.name);
   valeur.textContent = "Bienvenue " + userData.name;
   loginBouton.style.display = "none";
-  valeur.style.display = "block";
+  valeur.style.visibility = "visible";
+  logoutBouton.style.visibility = "visible";
 
-  //loginBouton.style.display = "block";
-
+  sessionStorage.setItem("test",1);
+  console.log("Test : ", sessionStorage.getItem("test"));
 }
 </script>
 <script>
@@ -100,6 +104,16 @@ export default {
       .then(data => {
         this.nomApplication = data;
       });
+  },
+  methods: {
+    logout() {
+      const valeur = document.querySelector('#pseudo');
+      const loginBouton = document.getElementById("boutonG");
+      const logoutBouton = document.getElementById("logout");
+      loginBouton.style.display = "block";
+      valeur.style.visibility = "hidden";
+      logoutBouton.style.visibility = "hidden";
+    }
   }
 }
 </script>
@@ -110,7 +124,8 @@ export default {
 .loginPlace {
   color: #ffffff !important;
   margin-right: 25px;
-  display: none;
+  /*display: none;*/
+  visibility: hidden;
 }
 
 .c1 {
