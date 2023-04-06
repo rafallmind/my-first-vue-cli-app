@@ -85,12 +85,20 @@ const callback = (response) => {
   valeur.style.visibility = "visible";
   logoutBouton.style.visibility = "visible";
 
-  sessionStorage.setItem("pseudo", userData.name);
-  sessionStorage.setItem("messageAcc", "Bienvenue " + userData.name);
-  sessionStorage.setItem("login", 1);
-  console.log("Pseudo : ", sessionStorage.getItem("pseudo"));
-  console.log("Message : ", sessionStorage.getItem("messageAcc"));
-  console.log("Login ? : ", sessionStorage.getItem("login"));
+  console.log("Donnees : ", userData);
+
+  localStorage.setItem("mail", userData.email);
+  console.log("MAIL OUAI : ", localStorage.getItem("mail"));
+
+  localStorage.setItem("mail", userData.email);
+  localStorage.setItem("pseudo", userData.name);
+  localStorage.setItem("messageAcc", "Bienvenue " + userData.name);
+  localStorage.setItem("login", 1);
+  console.log("Pseudo : ", localStorage.getItem("pseudo"));
+  console.log("Message : ", localStorage.getItem("messageAcc"));
+  console.log("Login ? : ", localStorage.getItem("login"));
+
+  history.go(0);
 }
 </script>
 <script>
@@ -108,6 +116,19 @@ export default {
       .then(data => {
         this.nomApplication = data;
       });
+
+    if (localStorage.getItem("login") == 0) {
+      const valeur = document.querySelector('#pseudo');
+      const loginBouton = document.getElementById("boutonG");
+      const logoutBouton = document.getElementById("logout");
+      loginBouton.style.display = "block";
+      valeur.style.visibility = "hidden";
+      logoutBouton.style.visibility = "hidden";
+
+      console.log("Pseudo : ", localStorage.getItem("pseudo"));
+      console.log("Message : ", localStorage.getItem("messageAcc"));
+      console.log("Login ? : ", localStorage.getItem("login"));
+    }
   },
   methods: {
     logout() {
@@ -118,13 +139,13 @@ export default {
       valeur.style.visibility = "hidden";
       logoutBouton.style.visibility = "hidden";
 
-      sessionStorage.setItem("pseudo", "");
-      sessionStorage.setItem("messageAcc", "");
-      sessionStorage.setItem("login", 0);
-      if (sessionStorage.getItem("login") == 0) {
-        console.log("Pseudo : ", sessionStorage.getItem("pseudo"));
-        console.log("Message : ", sessionStorage.getItem("messageAcc"));
-        console.log("Login ? : ", sessionStorage.getItem("login"));
+      localStorage.setItem("pseudo", "");
+      localStorage.setItem("messageAcc", "");
+      localStorage.setItem("login", 0);
+      if (localStorage.getItem("login") == 0) {
+        console.log("Pseudo : ", localStorage.getItem("pseudo"));
+        console.log("Message : ", localStorage.getItem("messageAcc"));
+        console.log("Login ? : ", localStorage.getItem("login"));
       }
     }
   }
