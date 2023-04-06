@@ -79,14 +79,18 @@ const callback = (response) => {
   const valeur = document.getElementById('pseudo');
   const loginBouton = document.getElementById("boutonG");
   const logoutBouton = document.getElementById("logout");
-  console.log("Pseudo : ", userData.name);
+
   valeur.textContent = "Bienvenue " + userData.name;
   loginBouton.style.display = "none";
   valeur.style.visibility = "visible";
   logoutBouton.style.visibility = "visible";
 
-  sessionStorage.setItem("test",1);
-  console.log("Test : ", sessionStorage.getItem("test"));
+  sessionStorage.setItem("pseudo", userData.name);
+  sessionStorage.setItem("messageAcc", "Bienvenue " + userData.name);
+  sessionStorage.setItem("login", 1);
+  console.log("Pseudo : ", sessionStorage.getItem("pseudo"));
+  console.log("Message : ", sessionStorage.getItem("messageAcc"));
+  console.log("Login ? : ", sessionStorage.getItem("login"));
 }
 </script>
 <script>
@@ -113,6 +117,15 @@ export default {
       loginBouton.style.display = "block";
       valeur.style.visibility = "hidden";
       logoutBouton.style.visibility = "hidden";
+
+      sessionStorage.setItem("pseudo", "");
+      sessionStorage.setItem("messageAcc", "");
+      sessionStorage.setItem("login", 0);
+      if (sessionStorage.getItem("login") == 0) {
+        console.log("Pseudo : ", sessionStorage.getItem("pseudo"));
+        console.log("Message : ", sessionStorage.getItem("messageAcc"));
+        console.log("Login ? : ", sessionStorage.getItem("login"));
+      }
     }
   }
 }
