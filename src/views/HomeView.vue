@@ -1,6 +1,6 @@
 <template>
   <div class="section">
-    <div v-if="mail == null">
+    <div v-if="mail == ''">
       <span>Veuillez vous connecter</span>
     </div>
     <div class="container mb-3" v-for="activite in activites" :key="activite[0]">
@@ -28,11 +28,13 @@ export default {
     return {
       fiches: [],
       activites: [],
-      mail: ""
+      mail: "",
+      login: 0
     }
   },
   updated() {    
     this.mail = localStorage.getItem("mail");
+    this.login = localStorage.getItem("login");
   },
   async created() {
     //Fichier json pour les data :         <ActivityComponent :title="fiche.title" :description="fiche.description" :status="fiche.status" :urlYtb="fiche.urlYtb"/>

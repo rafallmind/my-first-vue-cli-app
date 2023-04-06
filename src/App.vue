@@ -41,7 +41,7 @@
 
         <div class="navbar-end">
           <div class="navbar-item">
-            <div id="pseudo" class="loginPlace" style="display = 'none'">
+            <div id="messageAcc" class="loginPlace" style="display = 'none'">
               Déconnecté
             </div>
             <button id="logout" class="loginPlace button is-primary" @click="logout()">
@@ -76,29 +76,25 @@ import { decodeCredential } from 'vue3-google-login'
 
 const callback = (response) => {
   const userData = decodeCredential(response.credential);
-  const valeur = document.getElementById('pseudo');
+  const messageAcc = document.getElementById('messageAcc');
   const loginBouton = document.getElementById("boutonG");
   const logoutBouton = document.getElementById("logout");
 
-  valeur.textContent = "Bienvenue " + userData.name;
   loginBouton.style.display = "none";
-  valeur.style.visibility = "visible";
+  messageAcc.style.visibility = "visible";
   logoutBouton.style.visibility = "visible";
-
-  console.log("Donnees : ", userData);
-
-  localStorage.setItem("mail", userData.email);
-  console.log("MAIL OUAI : ", localStorage.getItem("mail"));
 
   localStorage.setItem("mail", userData.email);
   localStorage.setItem("pseudo", userData.name);
   localStorage.setItem("messageAcc", "Bienvenue " + userData.name);
   localStorage.setItem("login", 1);
-  console.log("Pseudo : ", localStorage.getItem("pseudo"));
-  console.log("Message : ", localStorage.getItem("messageAcc"));
-  console.log("Login ? : ", localStorage.getItem("login"));
+
+  messageAcc.textContent = localStorage.getItem("messageAcc");
+
+  console.log("MESSAGE : ", localStorage.getItem("messageAcc"));
 
   history.go(0);
+
 }
 </script>
 <script>
@@ -116,37 +112,43 @@ export default {
       .then(data => {
         this.nomApplication = data;
       });
-
+  },
+  updated() {
+    console.log("UPDATE");
     if (localStorage.getItem("login") == 0) {
-      const valeur = document.querySelector('#pseudo');
+      const messageAcc = document.getElementById('messageAcc');
       const loginBouton = document.getElementById("boutonG");
       const logoutBouton = document.getElementById("logout");
       loginBouton.style.display = "block";
-      valeur.style.visibility = "hidden";
+      messageAcc.style.visibility = "hidden";
       logoutBouton.style.visibility = "hidden";
+    } else if (localStorage.getItem("login") == 1) {
+      const messageAcc = document.getElementById('messageAcc');
+      const loginBouton = document.getElementById("boutonG");
+      const logoutBouton = document.getElementById("logout");
+      loginBouton.style.display = "none";
+      messageAcc.style.visibility = "visible";
+      logoutBouton.style.visibility = "visible";
 
-      console.log("Pseudo : ", localStorage.getItem("pseudo"));
-      console.log("Message : ", localStorage.getItem("messageAcc"));
-      console.log("Login ? : ", localStorage.getItem("login"));
+      messageAcc.textContent = localStorage.getItem("messageAcc");
     }
+
   },
   methods: {
     logout() {
-      const valeur = document.querySelector('#pseudo');
+      const messageAcc = document.getElementById('messageAcc');
       const loginBouton = document.getElementById("boutonG");
       const logoutBouton = document.getElementById("logout");
       loginBouton.style.display = "block";
-      valeur.style.visibility = "hidden";
+      messageAcc.style.visibility = "hidden";
       logoutBouton.style.visibility = "hidden";
 
       localStorage.setItem("pseudo", "");
       localStorage.setItem("messageAcc", "");
       localStorage.setItem("login", 0);
-      if (localStorage.getItem("login") == 0) {
-        console.log("Pseudo : ", localStorage.getItem("pseudo"));
-        console.log("Message : ", localStorage.getItem("messageAcc"));
-        console.log("Login ? : ", localStorage.getItem("login"));
-      }
+      localStorage.setItem("mail", "");
+
+      history.go(0);
     }
   }
 }
