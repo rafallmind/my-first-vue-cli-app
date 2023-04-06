@@ -1,5 +1,8 @@
 <template>
   <div class="section">
+    <div v-if="mail == null">
+      <span>Veuillez vous connecter</span>
+    </div>
     <div class="container mb-3" v-for="activite in activites" :key="activite[0]">
       <div v-if="activite[6] == mail">
         <ActivityComponent :title="activite[1]" :description="activite[2]" :status="activite[3]" :urlYtb="activite[4]" />
@@ -25,7 +28,7 @@ export default {
     return {
       fiches: [],
       activites: [],
-      mail: String
+      mail: ""
     }
   },
   updated() {    
