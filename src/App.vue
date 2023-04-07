@@ -54,20 +54,20 @@
     </div>
   </header>
 
-  <body class="mt-6 bg2">
-    <div class="container">
-      <RouterView />
-    </div>
+  <body class="has-background-grey-lighter">
+    <section class="hero is-medium">
+      <div class="hero-body">
+        <RouterView />
+      </div>
+    </section>
   </body>
-  <footer class="footer bg2">
+  <footer class="footer has-background-info has-text-white">
     <div class="content has-text-centered">
-      <p>
-        <strong>{{ nomApplication }}</strong> par
-        <a href="https://www.linkedin.com/in/julian-aubert-4b6438174/">Julian Aubert</a> -
-        <a href="https://www.linkedin.com/in/samuel-briand-44220/">Samuel Briand</a> -
-        <a href="https://www.linkedin.com/in/louis-andre-298785171/">Louis André</a> -
-        <a href="https://www.linkedin.com/in/maxime-perrin-12a5601a7/">Maxime Perrin</a>.
-      </p>
+      {{ nomApplication }} par
+      <a href="https://www.linkedin.com/in/julian-aubert-4b6438174/">Julian Aubert</a> -
+      <a href="https://www.linkedin.com/in/samuel-briand-44220/">Samuel Briand</a> -
+      <a href="https://www.linkedin.com/in/louis-andre-298785171/">Louis André</a> -
+      <a href="https://www.linkedin.com/in/maxime-perrin-12a5601a7/">Maxime Perrin</a>.
     </div>
   </footer>
 </template>
@@ -155,44 +155,50 @@ export default {
 </script>
 
 <style>
-@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+  @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
-.loginPlace {
-  color: #ffffff !important;
-  margin-right: 25px;
-  /*display: none;*/
-  visibility: hidden;
-}
+  a:link, a:visited{
+    text-decoration: none !important;
+     color:white;
+  }
 
-.c1 {
-  color: #A15F00 !important;
-}
 
-.c2 {
-  color: #ED9A24 !important;
-}
+  .loginPlace {
+    color: #ffffff !important;
+    margin-right: 25px;
+    /*display: none;*/
+    visibility: hidden;
+  }
 
-.c3 {
-  color: #40B3FF !important;
-}
+  .c1 {
+    color: #A15F00 !important;
+  }
 
-.c4 {
-  color: #0C65A1 !important;
-}
+  .c2 {
+    color: #ED9A24 !important;
+  }
 
-.bg1 {
-  background-color: #A15F00 !important;
-}
+  .c3 {
+    color: #40B3FF !important;
+  }
 
-.bg2 {
-  background-color: #ED9A24 !important;
-}
+  .c4 {
+    color: #0C65A1 !important;
+  }
 
-.bg3 {
-  background-color: #40B3FF !important;
-}
+  .bg1 {
+    background-color: #A15F00 !important;
+  }
 
-.bg4 {
-  background-color: #0C65A1 !important;
-}
+  .bg2 {
+    background-color: #ED9A24 !important;
+  }
+
+  .bg3 {
+    background-color: #40B3FF !important;
+  }
+
+  .bg4 {
+    background-color: #0C65A1 !important;
+  }
 </style>

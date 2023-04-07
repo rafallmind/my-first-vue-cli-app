@@ -1,14 +1,12 @@
 <template>
-  <div class="section">
-    <div v-if="mail == ''">
+    <div class="container has-text-centered is-size-1" v-if="mail == ''">
       <span>Veuillez vous connecter</span>
     </div>
     <div class="container mb-3" v-for="activite in activites" :key="activite[0]">
-      <div v-if="activite[6] == mail">
+      <div v-if="activite[5] == mail">
         <ActivityComponent :title="activite[1]" :description="activite[2]" :status="activite[3]" :urlYtb="activite[4]" />
       </div>
     </div>
-  </div>
 </template>
 
 <script>
