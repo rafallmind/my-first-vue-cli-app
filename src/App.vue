@@ -171,7 +171,6 @@ export default {
 
   .btnColor{
     background-color : #EA4335 !important;
-    border: none !important;
   }
 
 </style>
