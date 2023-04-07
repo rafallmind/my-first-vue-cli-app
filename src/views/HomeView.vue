@@ -55,7 +55,6 @@ function parseData(data) {
     return line.split(",")
   });
   return activityList;
-  //TODO : traitement de la data https://gist.github.com/edwardlorilla/b9bb22dcc06ba6fe98aeb4f95d4fdbb1#file-styles OU https://edwardize.blogspot.com/2018/04/parsinf-csv-file-import-javascript-vuejs.html 
 }
 </script>
 

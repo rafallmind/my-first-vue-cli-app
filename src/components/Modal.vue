@@ -39,11 +39,9 @@
     align-items: center;
   }
 
-  button{
-    color: #363636 !important;
-  }
   a{
-    color: #363636 !important;
+    text-decoration: none;
+    color: white;
   }
 
   .container{

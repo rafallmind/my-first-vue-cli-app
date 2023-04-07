@@ -16,7 +16,7 @@
             </div>
         </div>
         <footer class="card-footer">
-            <a class="card-footer-item" type="button" @click="showModal">Etat et image</a>
+            <a class="card-footer-item" type="button" @click="showModal">État et démo</a>
         </footer>
     </div>
 
