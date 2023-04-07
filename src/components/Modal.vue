@@ -1,6 +1,6 @@
 <template>
-  <div class="bloc-modale ">
-    <div class="container m-3 bg2">
+  <div class="bloc-modale">
+    <div class="container m-3 has-background-grey-lighter">
         <h1 class="subtitle">Etat de l'activité : {{ status }} </h1>
         <a class="button is-info" :href="urlYtb"> Démo ici</a><p></p>
         <a class="button is-info my-2" @click="close">Fermer</a>    

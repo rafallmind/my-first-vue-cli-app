@@ -1,7 +1,7 @@
 <template>
-    <div class="card has-background-info">
+    <div class="card has-background-info has-text-white">
         <header class="card-header">
-            <p class="card-header-title">
+            <p class="card-header-title has-text-white">
             {{title}}
             </p>
             <button class="card-header-icon" aria-label="more options">
@@ -66,10 +66,8 @@
 
   a{
   text-decoration: none;
-  color: #363636;
+  color: white;
   }
-  a:hover{
-    color:#ED9A24;
-  }
+
 </style>
   

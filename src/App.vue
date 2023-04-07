@@ -6,7 +6,7 @@
       <div class="navbar-brand">
         <a class="navbar-item" href="#">
           <img alt="Logo Application" src="./assets/objective.png" width="30" height="30">
-          <h1 class="title is-4 ml-4">{{ nomApplication }}</h1>
+          <h1 class="title is-4 ml-4 has-text-white">{{ nomApplication }}</h1>
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -159,9 +159,8 @@ export default {
 
   a:link, a:visited{
     text-decoration: none !important;
-     color:white;
+    color:white;
   }
-
 
   .loginPlace {
     color: #ffffff !important;
@@ -170,35 +169,4 @@ export default {
     visibility: hidden;
   }
 
-  .c1 {
-    color: #A15F00 !important;
-  }
-
-  .c2 {
-    color: #ED9A24 !important;
-  }
-
-  .c3 {
-    color: #40B3FF !important;
-  }
-
-  .c4 {
-    color: #0C65A1 !important;
-  }
-
-  .bg1 {
-    background-color: #A15F00 !important;
-  }
-
-  .bg2 {
-    background-color: #ED9A24 !important;
-  }
-
-  .bg3 {
-    background-color: #40B3FF !important;
-  }
-
-  .bg4 {
-    background-color: #0C65A1 !important;
-  }
 </style>
