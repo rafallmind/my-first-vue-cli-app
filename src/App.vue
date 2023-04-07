@@ -44,7 +44,7 @@
             <div id="messageAcc" class="loginPlace" style="display = 'none'">
               Déconnecté
             </div>
-            <button id="logout" class="loginPlace button is-primary" @click="logout()">
+            <button id="logout" class="loginPlace button btnColor" @click="logout()">
               Se déconnecter
             </button>
             <GoogleLogin :callback="callback" id="boutonG" />
@@ -167,6 +167,11 @@ export default {
     margin-right: 25px;
     /*display: none;*/
     visibility: hidden;
+  }
+
+  .btnColor{
+    background-color : #EA4335 !important;
+    border: none !important;
   }
 
 </style>
