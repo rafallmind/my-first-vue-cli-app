@@ -98,60 +98,81 @@ const callback = (response) => {
 }
 </script>
 <script>
+  export default {
+    name: 'AppView',
+    data() {
+      return {
+        nomApplication: ''
+      }
+    },
+    mounted() {
+      fetch('/config.txt')
+        .then(response => response.text())
+        .then(data => {
+          this.nomApplication = data;
+        });
+    },
+    updated() {
+      console.log("UPDATE");
+      if (localStorage.getItem("login") == 0) {
+        const messageAcc = document.getElementById('messageAcc');
+        const loginBouton = document.getElementById("boutonG");
+        const logoutBouton = document.getElementById("logout");
+        loginBouton.style.display = "block";
+        messageAcc.style.visibility = "hidden";
+        logoutBouton.style.visibility = "hidden";
+      } else if (localStorage.getItem("login") == 1) {
+        const messageAcc = document.getElementById('messageAcc');
+        const loginBouton = document.getElementById("boutonG");
+        const logoutBouton = document.getElementById("logout");
+        loginBouton.style.display = "none";
+        messageAcc.style.visibility = "visible";
+        logoutBouton.style.visibility = "visible";
 
-export default {
-  name: 'AppView',
-  data() {
-    return {
-      nomApplication: ''
-    }
-  },
-  mounted() {
-    fetch('/config.txt')
-      .then(response => response.text())
-      .then(data => {
-        this.nomApplication = data;
-      });
-  },
-  updated() {
-    console.log("UPDATE");
-    if (localStorage.getItem("login") == 0) {
-      const messageAcc = document.getElementById('messageAcc');
-      const loginBouton = document.getElementById("boutonG");
-      const logoutBouton = document.getElementById("logout");
-      loginBouton.style.display = "block";
-      messageAcc.style.visibility = "hidden";
-      logoutBouton.style.visibility = "hidden";
-    } else if (localStorage.getItem("login") == 1) {
-      const messageAcc = document.getElementById('messageAcc');
-      const loginBouton = document.getElementById("boutonG");
-      const logoutBouton = document.getElementById("logout");
-      loginBouton.style.display = "none";
-      messageAcc.style.visibility = "visible";
-      logoutBouton.style.visibility = "visible";
+        messageAcc.textContent = localStorage.getItem("messageAcc");
+      }
 
-      messageAcc.textContent = localStorage.getItem("messageAcc");
-    }
+    },
+    methods: {
+      logout() {
+        const messageAcc = document.getElementById('messageAcc');
+        const loginBouton = document.getElementById("boutonG");
+        const logoutBouton = document.getElementById("logout");
+        loginBouton.style.display = "block";
+        messageAcc.style.visibility = "hidden";
+        logoutBouton.style.visibility = "hidden";
 
-  },
-  methods: {
-    logout() {
-      const messageAcc = document.getElementById('messageAcc');
-      const loginBouton = document.getElementById("boutonG");
-      const logoutBouton = document.getElementById("logout");
-      loginBouton.style.display = "block";
-      messageAcc.style.visibility = "hidden";
-      logoutBouton.style.visibility = "hidden";
+        localStorage.setItem("pseudo", "");
+        localStorage.setItem("messageAcc", "");
+        localStorage.setItem("login", 0);
+        localStorage.setItem("mail", "");
 
-      localStorage.setItem("pseudo", "");
-      localStorage.setItem("messageAcc", "");
-      localStorage.setItem("login", 0);
-      localStorage.setItem("mail", "");
-
-      history.go(0);
-    }
+        history.go(0);
+      }
+    }  
   }
-}
+
+  document.addEventListener('DOMContentLoaded', () => {
+
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Add a click event on each of them
+  $navbarBurgers.forEach( el => {
+    el.addEventListener('click', () => {
+
+      // Get the target from the "data-target" attribute
+      const target = el.dataset.target;
+      const $target = document.getElementById(target);
+
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      el.classList.toggle('is-active');
+      $target.classList.toggle('is-active');
+
+    });
+  });
+
+  });
 </script>
 
 <style>
