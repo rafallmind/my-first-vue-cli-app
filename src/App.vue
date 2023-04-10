@@ -16,7 +16,7 @@
         </a>
       </div>
 
-      <div id="navbarBasicExample" class="navbar-menu">
+      <div id="navbarBasicExample" class="navbar-menu has-background-info">
         <div class="navbar-start">
 
           <router-link class="navbar-item" to="/">Page d'accueil</router-link>
@@ -28,7 +28,7 @@
               Plus
             </a>
 
-            <div class="navbar-dropdown">
+            <div class="navbar-dropdown has-background-info">
               <a class="navbar-item">
                 A venir #1
               </a>
@@ -178,9 +178,17 @@ const callback = (response) => {
 <style>
   @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
-  a:link, a:visited{
+  a:link, a:visited, .navbar-item, .navbar-link{
     text-decoration: none !important;
-    color:white;
+    color:white !important;
+  }
+
+  .navbar-dropdown a:hover,a.navbar-item:hover, a.navbar-link:hover {
+    background-color: #3082C5 !important;
+  }
+
+  a.navbar-link::after{
+    border-color:white !important;
   }
 
   .loginPlace {
