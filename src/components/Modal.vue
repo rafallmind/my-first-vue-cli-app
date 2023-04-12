@@ -21,18 +21,13 @@ export default {
       this.$emit('close');
     },
     check() {
-      localStorage.setItem("done", this.checked);
 
-      console.log("DONE : ", localStorage.getItem("done"));
+      console.log("Checked : ",this.checked);
 
-      if (localStorage.getItem("done") == "true") {
-        console.log("VALUE TRUE : ", localStorage.getItem("done"));
+      if (this.checked == true) {
         this.text = "DONE";
-        localStorage.setItem("txt", "DONE");
-      } else if (localStorage.getItem("done") == "false") {
-        console.log("VALUE FALSE : ", localStorage.getItem("done"));
+      } else if (this.checked == false) {
         this.text = "TODO";
-        localStorage.setItem("txt", "TODO");
       }
     },
   },
@@ -45,18 +40,16 @@ export default {
   }, props: {
     status: String,
     urlYtb: String
-
   },
   mounted() {
-    this.checked = localStorage.getItem("done");
-    this.text = localStorage.getItem("txt");
+    localStorage.setItem("status", this.status);
 
-    if (this.checked == "true") {
+    if (this.status == "DONE") {
       this.text = "DONE";
-      localStorage.setItem("txt", "DONE");
-    } else if (this.checked == "false") {
+      this.checked = true;
+    } else if (this.status == "TODO") {
       this.text = "TODO";
-      localStorage.setItem("txt", "TODO");
+      this.checked = false;
     }
 
   },
@@ -83,10 +76,10 @@ export default {
   align-items: center;
 }
 
-  a{
-    text-decoration: none;
-    color: white;
-  }
+a {
+  text-decoration: none;
+  color: white;
+}
 
 .container {
   text-align: center;
