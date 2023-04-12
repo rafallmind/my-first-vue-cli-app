@@ -48,8 +48,6 @@ export default {
       this.activites.push(activityList[i]);
     }
 
-    console.log("Mail 2 : ", localStorage.getItem("mail"));
-
     const response = await fetch('/activityDataConfig.json');
     const data = await response.json();
     this.fiches = data.fiches;
