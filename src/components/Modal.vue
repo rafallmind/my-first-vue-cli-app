@@ -2,8 +2,9 @@
   <div class="bloc-modale has-background-grey-lighter">
     <div class="container m-3 bg2">
       <div>
-        <label id="txt" for="checkbox">{{ text }} : </label>
-        <!--input type="checkbox" id="checkbox" v-model="checked" @change="check()"-->
+        <label id="txt">{{ text }}</label>
+        <!--label id="txt" for="checkbox">{{ text }}</label>
+        <input type="checkbox" id="checkbox" v-model="checked" @change="check()"-->
       </div>
       <a class="button is-info" :href="urlYtb"> Démo ici </a>
       <p></p>
@@ -20,16 +21,16 @@ export default {
     close() {
       this.$emit('close');
     },
-    check() {
+    /*check() {
 
       console.log("Checked : ",this.checked);
 
-      if (this.checked == true) {
+      if (this.checked == true) { 
         this.text = "DONE";
       } else if (this.checked == false) {
         this.text = "TODO";
       }
-    },
+    },*/
   },
   data() {
     return {

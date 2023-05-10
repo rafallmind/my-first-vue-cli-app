@@ -1,12 +1,12 @@
 <template>
-    <div class="container has-text-centered is-size-1" v-if="mail == ''">
-      <span>Veuillez vous connecter</span>
+  <div class="container has-text-centered is-size-1" v-if="mail == ''">
+    <span>Veuillez vous connecter</span>
+  </div>
+  <div class="container mb-3" v-for="activite in activites" :key="activite[13]">
+    <div v-if="activite[13] == mail">
+      <ActivityComponent :title="activite[0]" :description="activite[1]" :status="activite[5]" :urlYtb="activite[4]" />
     </div>
-    <div class="container mb-3" v-for="activite in activites" :key="activite[13]">
-      <div v-if="activite[13] == mail">
-        <ActivityComponent :title="activite[0]" :description="activite[1]" :status="activite[5]" :urlYtb="activite[4]"/>
-      </div>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -35,17 +35,20 @@ export default {
       login: 0
     }
   },
-  updated() {    
+  updated() {
     this.mail = localStorage.getItem("mail");
     this.login = localStorage.getItem("login");
   },
   async created() {
     //Fichier json pour les data :         <ActivityComponent :title="fiche.title" :description="fiche.description" :status="fiche.status" :urlYtb="fiche.urlYtb"/>
 
+
     const csv = await axios.get(gsheet_url);
     let activityList = parseData(csv.data);
     for (let i = 1; i < activityList.length; i++) {
-      this.activites.push(activityList[i]);
+      if (activityList[i][2] == localStorage.getItem("filtre") || localStorage.getItem("filtre")=='') {
+        this.activites.push(activityList[i]);
+      }
     }
 
     const response = await fetch('/activityDataConfig.json');

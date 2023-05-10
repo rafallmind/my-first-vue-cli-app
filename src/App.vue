@@ -4,7 +4,7 @@
   <header>
     <div class="navbar is-fixed-top is-info" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="#">
+        <a class="navbar-item" @click="defaut" href="/">
           <img alt="Logo Application" src="./assets/objective.png" width="30" height="30">
           <h1 class="title is-4 ml-4 has-text-white">{{ nomApplication }}</h1>
         </a>
@@ -19,23 +19,23 @@
       <div id="navbarBasicExample" class="navbar-menu has-background-info">
         <div class="navbar-start">
 
-          <router-link class="navbar-item" to="/">Page d'accueil</router-link>
+          <router-link class="navbar-item" to="/" @click="defaut">Page d'accueil</router-link>
 
           <router-link class="navbar-item" to="/PageCoach">A propos du coach</router-link>
 
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
-              Plus
+              Vos cours
             </a>
             <div class="navbar-dropdown has-background-info">
               <a class="navbar-item" @click="cuisine">
-                Vos cours de cuisine
+                Cuisine
               </a>
               <a class="navbar-item" @click="sport">
-                Vos séances de sport
+                Sport
               </a>
               <a class="navbar-item" @click="educ">
-                Vos cours d'éducation
+                Education
               </a>
             </div>
           </div>
@@ -151,18 +151,25 @@ const callback = (response) => {
         localStorage.setItem("mail", "");
 
         history.go(0);
-      },      
+      },         
+      defaut() {
+        this.filtre = '';
+        localStorage.setItem("filtre", this.filtre);
+      },     
       cuisine() {
         this.filtre = 'Cuisine';
         localStorage.setItem("filtre", this.filtre);
+        history.go(0);
       },      
       sport() {
         this.filtre = 'Sport';
         localStorage.setItem("filtre", this.filtre);
+        history.go(0);
       },      
       educ() {
         this.filtre = 'Education';
         localStorage.setItem("filtre", this.filtre);
+        history.go(0);
       }
     }  
   }
