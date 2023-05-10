@@ -14,9 +14,14 @@
 import ActivityComponent from '@/components/FicheActivite.vue';
 import fetch from 'node-fetch';
 import axios from 'axios';
-
 var gsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSYY_mA0X_tnaoCir60aps-jnZIJEiRDh8OXuGoE7-BduonmY-BesOWjfHgtrIGhiLYuAccjYI9Jg9Z/pub?gid=0&single=true&output=csv";
-//var whoList = [];
+
+function parseData(data) {
+  let activityList = data.split("\r").map(function (line) {
+    return line.split(",")
+  });
+  return activityList;
+}
 export default {
   name: 'HomeView',
   components: {
@@ -46,14 +51,9 @@ export default {
     const response = await fetch('/activityDataConfig.json');
     const data = await response.json();
     this.fiches = data.fiches;
-  }
+  },
 }
-function parseData(data) {
-  let activityList = data.split("\r").map(function (line) {
-    return line.split(",")
-  });
-  return activityList;
-}
+
 </script>
 
 
