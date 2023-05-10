@@ -4,7 +4,7 @@
     </div>
     <div class="container mb-3" v-for="activite in activites" :key="activite[13]">
       <div v-if="activite[13] == mail">
-        <ActivityComponent :title="activite[0]" :description="activite[1]" :status="activite[5]" :urlYtb="activite[4]"/>
+        <ActivityComponent v-bind:activity="activite"/>
       </div>
     </div>
 </template>
