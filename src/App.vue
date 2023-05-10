@@ -27,13 +27,15 @@
             <a class="navbar-link">
               Plus
             </a>
-
             <div class="navbar-dropdown has-background-info">
-              <a class="navbar-item">
-                A venir #1
+              <a class="navbar-item" @click="cuisine">
+                Vos cours de cuisine
               </a>
-              <a class="navbar-item">
-                A venir #2
+              <a class="navbar-item" @click="sport">
+                Vos séances de sport
+              </a>
+              <a class="navbar-item" @click="educ">
+                Vos cours d'éducation
               </a>
             </div>
           </div>
@@ -102,7 +104,8 @@ const callback = (response) => {
     name: 'AppView',
     data() {
       return {
-        nomApplication: ''
+        nomApplication: '',
+        filtre: '',
       }
     },
     mounted() {
@@ -148,6 +151,18 @@ const callback = (response) => {
         localStorage.setItem("mail", "");
 
         history.go(0);
+      },      
+      cuisine() {
+        this.filtre = 'Cuisine';
+        localStorage.setItem("filtre", this.filtre);
+      },      
+      sport() {
+        this.filtre = 'Sport';
+        localStorage.setItem("filtre", this.filtre);
+      },      
+      educ() {
+        this.filtre = 'Education';
+        localStorage.setItem("filtre", this.filtre);
       }
     }  
   }

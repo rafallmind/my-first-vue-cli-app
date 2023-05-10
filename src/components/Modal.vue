@@ -3,7 +3,7 @@
     <div class="container m-3 bg2">
       <div>
         <label id="txt" for="checkbox">{{ text }} : </label>
-        <input type="checkbox" id="checkbox" v-model="checked" @change="check()">
+        <!--input type="checkbox" id="checkbox" v-model="checked" @change="check()"-->
       </div>
       <a class="button is-info" :href="urlYtb"> Démo ici </a>
       <p></p>
