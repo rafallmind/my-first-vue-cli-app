@@ -1,10 +1,11 @@
 <template>
   <div class="container has-text-centered is-size-1" v-if="mail == ''">
-    <span>Veuillez vous connecter</span>
-  </div>
-  <div class="container mb-3" v-for="activite in activites" :key="activite[13]">
-    <div v-if="activite[13] == mail">
-      <ActivityComponent :title="activite[0]" :description="activite[1]" :status="activite[5]" :urlYtb="activite[4]" />
+      <span>Veuillez vous connecter</span>
+    </div>
+    <div class="container mb-3" v-for="activite in activites" :key="activite[13]">
+      <div v-if="activite[13] == mail">
+        <ActivityComponent v-bind:activity="activite"/>
+      </div>
     </div>
   </div>
 </template>
