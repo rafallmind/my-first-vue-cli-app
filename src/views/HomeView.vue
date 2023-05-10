@@ -1,11 +1,10 @@
 <template>
   <div class="container has-text-centered is-size-1" v-if="mail == ''">
-      <span>Veuillez vous connecter</span>
-    </div>
-    <div class="container mb-3" v-for="activite in activites" :key="activite[13]">
-      <div v-if="activite[13] == mail">
-        <ActivityComponent v-bind:activity="activite"/>
-      </div>
+    <span>Veuillez vous connecter</span>
+  </div>
+  <div class="container mb-3" v-for="activite in activites" :key="activite[13]">
+    <div v-if="activite[13] == mail">
+      <ActivityComponent v-bind:activity="activite" />
     </div>
   </div>
 </template>
@@ -47,7 +46,7 @@ export default {
     const csv = await axios.get(gsheet_url);
     let activityList = parseData(csv.data);
     for (let i = 1; i < activityList.length; i++) {
-      if (activityList[i][2] == localStorage.getItem("filtre") || localStorage.getItem("filtre")=='') {
+      if (activityList[i][2] == localStorage.getItem("filtre") || localStorage.getItem("filtre") == '') {
         this.activites.push(activityList[i]);
       }
     }
