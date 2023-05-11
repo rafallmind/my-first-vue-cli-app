@@ -19,7 +19,7 @@
       <div id="navbarBasicExample" class="navbar-menu has-background-info">
         <div class="navbar-start">
 
-          <router-link class="navbar-item" to="/" @click="defaut">Page d'accueil</router-link>
+          <router-link class="navbar-item" to="/">Page d'accueil</router-link>
 
           <router-link class="navbar-item" to="/PageCoach">A propos du coach</router-link>
 

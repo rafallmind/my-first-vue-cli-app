@@ -2,7 +2,7 @@
   <div class="bloc-modale has-background-grey-lighter">
     <div class="container m-3 bg2">
       <div>
-        <label id="txt">{{ text }}</label>
+        <label id="txt">{{ status }}</label>
         <!--label id="txt" for="checkbox">{{ text }}</label>
         <input type="checkbox" id="checkbox" v-model="checked" @change="check()"-->
       </div>
