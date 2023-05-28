@@ -5,7 +5,7 @@
     <div class="navbar is-fixed-top is-info" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" @click="defaut" href="/">
-          <img alt="Logo Application" src="./assets/objective.png" width="30" height="30">
+          <img alt="Logo Application" src="../public/objective.png" width="30" height="30">
           <h1 class="title is-4 ml-4 has-text-white">{{ nomApplication }}</h1>
         </a>
 
@@ -175,7 +175,7 @@ const callback = (response) => {
         history.go(0);
       },      
       fetchTxtContent() {
-        axios.get('/title.txt')
+        axios.get('/config.txt')
           .then(response => {
             this.txtContent = response.data;
             document.title = this.txtContent;          
