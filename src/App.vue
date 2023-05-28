@@ -19,7 +19,7 @@
       <div id="navbarBasicExample" class="navbar-menu has-background-info">
         <div class="navbar-start">
 
-          <router-link class="navbar-item" to="/">Page d'accueil</router-link>
+          <!--router-link class="navbar-item" to="/">Page d'accueil</router-link-->
 
           <router-link class="navbar-item" to="/PageCoach">A propos du coach</router-link>
 
@@ -100,12 +100,14 @@ const callback = (response) => {
 }
 </script>
 <script>
+  import axios from 'axios';
   export default {
     name: 'AppView',
     data() {
       return {
         nomApplication: '',
         filtre: '',
+        txtContent: '',
       }
     },
     mounted() {
@@ -114,6 +116,7 @@ const callback = (response) => {
         .then(data => {
           this.nomApplication = data;
         });
+      this.fetchTxtContent();
     },
     updated() {
       console.log("UPDATE");
@@ -170,6 +173,17 @@ const callback = (response) => {
         this.filtre = 'Education';
         localStorage.setItem("filtre", this.filtre);
         history.go(0);
+      },      
+      fetchTxtContent() {
+        axios.get('/title.txt')
+          .then(response => {
+            this.txtContent = response.data;
+            document.title = this.txtContent;          
+          })
+          .catch(error => {
+            console.error(error);
+          });
+          console.log("TXT CONTENT : "+this.txtContent);  
       }
     }  
   }
